@@ -22,9 +22,7 @@ export default class index extends Component {
                 <ScrollView style={{ height: 100 }}>
                     <Text style={{ fontSize: 96 }}>Scroll me plz</Text>
                     <Image source={require('../images/狗头.jpg')} />
-                    <Image source={require('../images/狗头.jpg')} />
                     <Text style={{ fontSize: 96 }}>If you like</Text>
-                    <Image source={require('../images/狗头.jpg')} />
                     <Image source={require('../images/狗头.jpg')} />
                     <Text style={{ fontSize: 80 }}>React Native</Text>
                 </ScrollView>
