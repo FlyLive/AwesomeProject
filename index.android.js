@@ -6,11 +6,12 @@
 
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View, Image } from 'react-native';
+import App from './common'
 
 export default class AwesomeProject extends Component {
   render() {
     let pic = {
-      uri:'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
     }
     return (
       <View style={styles.container}>
@@ -21,7 +22,8 @@ export default class AwesomeProject extends Component {
         <Text style={styles.instructions}>
           To get started, edit index.android.js
         </Text>
-        <Image source={pic} style={{width: 193, height: 110}} />
+        <Image source={pic} style={{ width: 193, height: 110 }} />
+        <App children="World" style={styles.instructions} />
       </View>
     );
   }
