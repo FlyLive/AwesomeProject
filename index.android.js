@@ -5,10 +5,14 @@
  */
 
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Image } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import App from './common'
 
 export default class AwesomeProject extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { text: '' }
+  }
   render() {
     let pic = {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
@@ -22,7 +26,16 @@ export default class AwesomeProject extends Component {
         <Text style={styles.instructions}>
           To get started, edit index.android.js
         </Text>
-        <Image source={pic} style={{ width: 193, height: 110 }} />
+        <View>
+          <TextInput style={{ height: 40, width: 200 }}
+            placeholder="Type here to translate!"
+            onChangeText={(text) => this.setState({ text: text })}
+          /><Text style={{ padding: 10, fontSize: 42 }}>
+            {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
+          </Text>
+        </View>
+        <Image source={pic} style={{ width: 200, height: 100 }}/>
+        <Image source={require('./images/狗头.jpg')} style={{ width: 200, height: 200 }}><View><Text style={styles.welcome}>我是狗头</Text></View></Image>
         <App children="World" style={styles.instructions} />
       </View>
     );
