@@ -43,7 +43,7 @@ class MyApp extends Component {
                     <Text>Hello {params.name}!</Text>
                 </View>
                 <ScrollView style={{height: 100}}>
-                    <Text style={{fontSize: 96}}>Scroll me plz</Text>
+                    <Text style={{fontSize: 96}}>Scroll me please</Text>
                     <Image source={require('../images/狗头.jpg')}/>
                     <Text style={{fontSize: 96}}>If you like</Text>
                     <Image source={require('../images/狗头.jpg')}/>

@@ -40,7 +40,7 @@ class Index extends Component {
                 <Text style={styles.welcome}>
                     Hello ReactNative!</Text>
                 <Text style={styles.instructions}>
-                    To get started, edit index.android.js
+                    Fighting go!
                 </Text>
                 <View>
                     <TextInput style={{height: 40, width: 200}}
