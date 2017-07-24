@@ -1,14 +1,28 @@
-import React, { Component } from 'react'
-import {StyleSheet, Text, View, Image, TextInput,Button} from 'react-native'
+import React, {Component} from 'react'
+import {StyleSheet, Text, View, Image, TextInput, Button, Animated} from 'react-native'
 
-export default class Index extends Component {
+class Index extends Component {
     constructor(props) {
         super(props);
-        this.state = {text: ''}
+        this.state = {
+            text: '',
+            fadeAnim: new Animated.Value(0)
+        }
     }
+
+    componentDidMount() {
+        Animated.timing(                            // 随时间变化而执行的动画类型
+            this.state.fadeAnim,                      // 动画中的变量值
+            {
+                toValue: 1,                             // 透明度最终变为1，即完全不透明
+            }
+        ).start();                                  // 开始执行动画
+    }
+
     static navigationOptions = {
         title: 'Welcome',
     };
+
     render() {
         let pic = {
             uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
@@ -20,11 +34,9 @@ export default class Index extends Component {
                 <Button
                     title="Go to Jane's profile"
                     onPress={() =>
-                        navigate('MyApp', {name: 'MyApp'})
+                        navigate('MyApp', {name: 'Lucy'})
                     }
                 />
-                <Text style={styles.welcome}>
-                    Welcome to React Native!</Text>
                 <Text style={styles.welcome}>
                     Hello ReactNative!</Text>
                 <Text style={styles.instructions}>
@@ -39,8 +51,11 @@ export default class Index extends Component {
                 </Text>
                 </View>
                 <Image source={pic} style={{width: 200, height: 100}}/>
-                <Image source={require('../images/狗头.jpg')} style={{width: 200, height: 200}}><View><Text
-                    style={styles.welcome}>我是狗头</Text></View></Image>
+                <Image source={require('../images/狗头.jpg')} style={{width: 200, height: 200}}>
+                    <Animated.View style={{
+                        ...this.props.style,
+                        opacity: this.state.fadeAnim,          // 将透明度指定为动画变量值
+                    }}><Text style={styles.welcome}>我是狗头</Text></Animated.View></Image>
             </View>
         );
     }
@@ -64,3 +79,5 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
 });
+
+export default Index
